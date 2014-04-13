@@ -1,0 +1,35 @@
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'groovy'
+
+
+springVersion = "3.2.8.RELEASE"
+springDataNeo4jVersion = "3.0.2-SNAPSHOT"
+
+configurations {
+    runtime
+    testCompile
+}
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {
+        url "http://maven.springframework.org/release"
+    }
+    maven {
+        url 'http://m2.neo4j.org/content/repositories/releases'
+    }
+}
+
+
+dependencies{
+    compile 'org.codehaus.groovy:groovy-all:2.2.0'
+    compile 'org.springframework.data:spring-data-neo4j:3.0.1.RELEASE'
+    compile 'org.springframework.data:spring-data-neo4j-rest:3.0.1.RELEASE'
+    compile 'org.neo4j:neo4j-cypher-dsl:2.0.1'
+    compile 'org.hibernate:hibernate-validator:4.2.0.Final'
+    testCompile group:"junit", name: "junit", version: "4.11"
+}
